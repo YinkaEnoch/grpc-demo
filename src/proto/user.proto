@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc FindOne (UserById) returns (User) {}
+
+  rpc getUsers(getUserRequest) returns (getUsersResponse) {}
+}
+
+message UserById {
+  int32 id = 1;
+}
+
+message getUsersResponse {
+    repeated User user = 1;
+}
+
+message getUserRequest {
+}
+
+message User {
+  int32 id = 1;
+  string name = 2;
+}
